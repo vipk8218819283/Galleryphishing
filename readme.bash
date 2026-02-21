@@ -1,6 +1,3 @@
-# 1. Create directory and files
-mkdir photo-editor-phish && cd photo-editor-phish
-# Save the files above
 
 # 2. Make executable
 chmod +x server.py
