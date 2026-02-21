@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PhotoFix Pro - Get Link</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 50px; background: #f0f0f0; }
+        .card { background: white; max-width: 500px; margin: auto; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        button { background: #667eea; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 18px; cursor: pointer; }
+        .link { background: #28a745; color: white; padding: 20px; border-radius: 10px; margin: 20px 0; word-break: break-all; }
+        input { width: 100%; padding: 15px; border: 2px solid #ddd; border-radius: 10px; font-size: 16px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>📸 PhotoFix Pro</h1>
+        <p>Share with friends! <br>Copy your unique link below 👇</p>
+        
+        <input id="customName" placeholder="Enter name (optional)" maxlength="20">
+        <br>
+        <button onclick="generateLink()">🔗 Generate Share Link</button>
+        
+        <div id="result" style="display:none;">
+            <div class="link" id="shareLink"></div>
+            <button onclick="copyLink()" style="background:#28a745;">📋 Copy Link</button>
+            <button onclick="sendWhatsApp()">📱 WhatsApp</button>
+            <button onclick="sendSMS()">📱 SMS</button>
+        </div>
+    </body>
+</script>
+<script>
+const BASE_URL = window.location.origin;  // Auto-detects your GitHub Pages URL
+
+function generateLink() {
+    const name = document.getElementById('customName').value.trim() || 'friend';
+    const shortId = Math.random().toString(36).substr(2, 8);
+    const link = `${BASE_URL}/?ref=${shortId}&from=${encodeURIComponent(name)}`;
+    
+    document.getElementById('shareLink').textContent = link;
+    document.getElementById('result').style.display = 'block';
+}
+
+function copyLink() {
+    navigator.clipboard.writeText(document.getElementById('shareLink').textContent);
+    alert('✅ Link copied!');
+}
+
+function sendWhatsApp() {
+    const link = document.getElementById('shareLink').textContent;
+    window.open(`https://wa.me/?text=Hey! Check this FREE AI photo editor 😍 ${link}`);
+}
+
+function sendSMS() {
+    const link = document.getElementById('shareLink').textContent;
+    window.open(`sms:?body=Hey! FREE AI photo editor: ${link}`);
+}
+</script>
+</html>
