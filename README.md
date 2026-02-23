@@ -17,7 +17,7 @@ brew install cloudflared
 # OR Windows (PowerShell)
 winget install Cloudflare.cloudflared
 ```
-## Login on clodflare 
+## Login on cloudflare 
 
 ```bash
 
