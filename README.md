@@ -1,47 +1,78 @@
-# Galleryphishing
+# Gallery Enhancer
 
+A simple web-based **photo enhancement interface** built with Python.  
+This project demonstrates how a lightweight server can host a photo-processing interface that allows users to upload and enhance images.
 
-A photo enhancer interface to steal photos of targets , credentials will provided in folder name stolen data 
+> ⚠️ This project is for educational and development purposes only.
+
+---
+
+## Features
+
+- Simple web interface for uploading images
+- Basic photo enhancement pipeline
+- Lightweight Python server
+- Easy local deployment
+- Can be exposed temporarily using a tunnel for testing
+
+---
 
 ## Installation
+
+### 1. Clone the repository
+
 ```bash
 git clone https://github.com/toolsbyvipin/Galleryphishing.git
-```
-```bash
-# 2. Make executable
+cd Galleryphishing
+2. Make the server executable
 chmod +x server.py
-
-# 3. Run server
+3. Run the server
 python3 server.py
 ```
-## Host with cloudflair to get sharable link
 
+The server will start locally on:
 
+http://localhost:8080
+Exposing the Server (Optional)
+
+You can use Cloudflare Tunnel to generate a temporary public URL for testing or demos.
+
+Install Cloudflared
+
+Ubuntu / Debian
 ```bash
-# Ubuntu/Debian
 wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
 sudo dpkg -i cloudflared-linux-amd64.deb
-
-# OR Mac
+```
+Mac
+```bash
 brew install cloudflared
-
-# OR Windows (PowerShell)
+```
+Windows (PowerShell)
+```bash
 winget install Cloudflare.cloudflared
-```
-## Login on cloudflare 
-
-```bash
-
-#login here
+Login to Cloudflare
 cloudflared tunnel login
-```
-
-## host 
-
-```bash
-# Terminal 2 - Create tunnel
-cloudflared tunnel create photo-phish 
-
-# Run tunnel (copies public URL automatically!)
+Create a Tunnel
+cloudflared tunnel create photo-demo
+Run the Tunnel
 cloudflared tunnel --url http://localhost:8080
 ```
+
+Cloudflare will generate a public URL that can be shared for testing.
+
+Project Structure
+Galleryphishing/
+│
+├── server.py        # Main server script
+├── static/          # Static files (CSS, JS, assets)
+├── templates/       # HTML templates
+└── README.md
+Disclaimer
+
+This project is intended for educational purposes and development practice only.
+Always obtain clear permission from users before collecting or processing any data.
+
+# Developer
+
+A tool developed by Vipin to prank your friends 
